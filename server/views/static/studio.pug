@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  div(id="designLab")
+    div(class="container-fluid")
+      div(class="row")
+        div(class="col-md-6")
+          div(id="editControls")
+            h1(class="text-center") Customize Your Product
+            form
+              label(id="myText") Text
+              input(id="designText" type="text" name="designText" class="form-control")
+              div(id="textOptions")
+              br
+              label(id="myUpload") File Upload
+              input(id="designUpload" type="file" name="designUpload" class="form-control")
+              br
+              label(id="myColor") Product Color
+              select(id="designColor" name="designColor" class="form-control")
+                option() White
+                option() Black
+              br
+              label(id="myNote") Add a note
+              textarea(id="designNotes" type="text" name="designNotes" class="form-control")
+        div(class="col-md-6")
+          div(id="designContent")
+            div(id="designTextOutput")
+          div(id="designImage")
+            img(id="editImage" src="/images/shirts/blank_white.jpg")
+  script(src="/js/lab/design.js")

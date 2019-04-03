@@ -1,0 +1,23 @@
+#content-marg {
+	margin-top: 5%;
+}
+#frontImage {
+	height: 300px;
+}
+#inner-marg {
+	margin-top: 2.5%;
+}
+
+#editControls {
+	background: #4a69bd;
+  padding: 5%;
+  margin-top: 5%;
+  border-radius: 10px;
+  color: white;
+}
+
+#editImage {
+	width: 100%;
+	height: 600px;
+	z-index: -1;
+}
