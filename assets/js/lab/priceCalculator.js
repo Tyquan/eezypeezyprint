@@ -1,7 +1,6 @@
 var estimate = $('#estimate');
 var getTotalButton = document.getElementById('getEstimate');
 
-var shirtCount = 0;
 var textCount = 0;
 var total = 0;
 
@@ -19,11 +18,8 @@ function getTotal(){
 	estimate.append(`$ ${shirts}`);
 }
 
-function getShirtPrice(){
-	var pricePerShirt = 10.00;
-	var totals = 0;
-	var textTotal = 0
-	var newTotal = 0;
+function getShirtCount(){
+	var shirtCount = 0;
 	var youthS = document.getElementById('youthS');
 	var youthM = document.getElementById('youthM');
 	var youthL = document.getElementById('youthL');
@@ -35,6 +31,17 @@ function getShirtPrice(){
 	var xl = document.getElementById('xl');
 
 	shirtCount = Number(youthS.value) + Number(youthM.value) + Number(youthL.value) + Number(youthXL.value) + Number(small.value) + Number(medium.value) + Number(large.value) + Number(xl.value);
+
+	return shirtCount;
+}
+
+function getShirtPrice(){
+	var pricePerShirt = 10.00;
+	var totals = 0;
+	var textTotal = 0
+	var newTotal = 0;
+	
+	var shirtCount = getShirtCount();
 
 	if (shirtCount >= 12) {
 		pricePerShirt = 6.00;
@@ -48,25 +55,19 @@ function getShirtPrice(){
 
 	console.log(pricePerShirt);
 
-	totals = shirtCount * pricePerShirt;
+	// get the price of the texts
+	var textTotal = getTextPrice(shirtCount);
 
-	var texts = getTextPrice();
-	if (texts >= 1) {
-		textTotal = shirtCount * texts;
-	} else {
-		textTotal = 0;
-	}
+	shirtTotal = shirtCount * pricePerShirt;
 
-	newTotal = totals + textTotal;
+	totals = shirtTotal + textTotal;
 
-	console.log(newTotal);
-
-	return newTotal;
+	return totals;
 }
 
-function getTextPrice(){
+function getTextPrice(shirtCount){
 	var totals = 0;
-	var pricePerText = 4.00;
+	var pricePerText = 8.00;
 	// front
 	var frontText1 = document.getElementById('designFrontTopText');
 	var frontText2 = document.getElementById('designFrontMidText');
@@ -93,8 +94,19 @@ function getTextPrice(){
 		textCount += 1;
 	}
 
+	if (shirtCount >= 12) {
+		pricePerText = 6.00;
+	}
+	if (shirtCount >= 24) {
+		pricePerText = 4.00;
+	}
+
 	totals = textCount * pricePerText;
 
-	return totals;
-
+	if (shirtCount >= 1) {
+		console.log(shirtCount * totals);
+		return shirtCount * totals;
+	} else {
+		return 0;
+	}
 }

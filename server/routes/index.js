@@ -16,10 +16,4 @@ router.get('/studio', function(req, res, next) {
 	});
 });
 
-// Shirt Order
-router.get('/shirtorder', function(req, res, next) {
-	res.render('static/order', { 
-	    title: 'Eezy Peezy Print'
-	});
-});
 module.exports = router;

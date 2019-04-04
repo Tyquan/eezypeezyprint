@@ -1,0 +1,157 @@
+#orderForm {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+#customerInfoTitle {
+  background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+}
+#customerInfoTitle:hover {
+  background-color: #ee5253;
+}
+#customerInfo {
+	display: none;
+}
+
+#customerShirtColor {
+	background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+}
+#customerShirtColor:hover {
+  background-color: #ee5253;
+}
+#customerShirtColorOptions {
+	display: none;
+}
+
+#customerTextOptions {
+	background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+}
+#customerTextOptions:hover {
+  background-color: #ee5253;
+}
+#textOptions {
+	display: none;
+}
+
+#customerFileOptions {
+	background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+}
+#customerFileOptions:hover {
+  background-color: #ee5253;
+}
+#fileOptions {
+	display: none;
+}
+
+#customerSizeOptions {
+	background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+}
+#customerSizeOptions:hover {
+  background-color: #ee5253;
+}
+#sizeOptions {
+	display: none;
+}
+
+#customerNoteOptions {
+	background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+}
+#customerNoteOptions:hover {
+  background-color: #ee5253;
+}
+#customerNoteOptions:visited {
+  background-color: #ee5253;
+}
+#noteOptions {
+	display: none;
+}
+
+#frontShirtOptions {
+  background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+#frontShirtOptions:hover {
+  background-color: #ee5253;
+}
+#frontShirtOptions:visited {
+  background-color: #ee5253;
+}
+
+#frontText {
+  display: none;
+}
+
+#backShirtOptions {
+  background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+#backShirtOptions:hover {
+  background-color: #ee5253;
+}
+#backShirtOptions:visited {
+  background-color: #ee5253;
+}
+
+#backText {
+  display: none;
+}
+
+#frontTextStyleOptions {
+  background-color: #2e86de;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: white;
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+  display: none;
+}
+
+#frontTopTextStyle {
+  display: none;
+}
+
+#textContainer {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#noteOptions {
+  display: none;
+}
+
