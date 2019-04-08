@@ -1,23 +1,5 @@
 div(id="orderForm")
   form(id="designForm")
-    div(id="customerInfoTitle")
-      h6
-        i(id="infoArrow" class="fa fa-arrow-right" aria-hidden="true") 
-        span(class="text-center")  Customer Information
-    br
-    div(id="customerInfo")
-      label(id="clientName") Full Name 
-        small required
-      input(id="fullName" type="text" name="fullName" class="form-control")
-      br
-      label(id="clientEmail") Email Address 
-        small required
-      input(id="email" type="email" name="email" class="form-control")
-      br
-      label(id="clientNumber") Phone Number 
-        small required
-      input(id="phoneNumber" type="text" name="phoneNumber" class="form-control")
-      br
     div(class="row")
       div(class="col-md-12")
         div(id="customerShirtColor")
@@ -68,7 +50,7 @@ div(id="orderForm")
               div(id="textContainer")
                 div(id="frontText")
                   label(id="myFrontTopText") Top Text
-                  input(id="designFrontTopText" type="text" name="designFrontTopText" class="form-control")
+                  textarea(id="designFrontTopText" type="text" name="designFrontTopText" class="form-control")
                   br
                   button(class="btn btn-primary" id="designFrontTopTextBtn") Add top text
                   br
@@ -79,9 +61,11 @@ div(id="orderForm")
                     div(id="frontTopTextStyle")
                       label(id="myTopTextScale") Resize Text
                       input(type="range" id="frontTopTextScale" min="30" max="150" value="10" name="frontTopTextScale" class="form-control")
-                      label(id="myTopTextRotation") Rotate Text
-                      input(type="range" id="frontTopTextRotation" min="-360" max="360" value="0" name="frontTopTextRotation" class="form-control")
-                  br
+                      label(id="myTopTextHorizontal") Horizontal
+                      input(type="range" id="frontTopTextHorizontal" min="150" max="450" value="10" name="frontTopTextHorizontal" class="form-control")
+                      label(id="myTopTextVertical") Vertical
+                      input(type="range" id="frontTopTextVertical" min="0" max="450" value="0" name="frontTopTextVertical" class="form-control")
+                  hr
                   label(id="myMidText") Mid Text
                   input(id="designFrontMidText" type="text" name="designFrontMidText" class="form-control")
           br
@@ -155,6 +139,26 @@ div(id="orderForm")
                 div(class="col-sm-3")
                   label(id="myXL") XL
                   input(id="xl" type="number" name="xl" class="form-control")
+          br
+    div(class="row")
+      div(class="col-md-12")
+        div(id="customerInfoTitle")
+          h6
+            i(id="infoArrow" class="fa fa-arrow-right" aria-hidden="true") 
+            span(class="text-center")  Customer Information
+        br
+        div(id="customerInfo")
+          label(id="clientName") Full Name 
+            small required to sumbit an order
+          input(id="fullName" type="text" name="fullName" class="form-control")
+          br
+          label(id="clientEmail") Email Address 
+            small required to sumbit an order
+          input(id="email" type="email" name="email" class="form-control")
+          br
+          label(id="clientNumber") Phone Number 
+            small required to sumbit an order
+          input(id="phoneNumber" type="text" name="phoneNumber" class="form-control")
           br
     div(class="row")
       div(class="col-sm-12")

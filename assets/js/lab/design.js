@@ -9,7 +9,8 @@ var backText2 = document.getElementById('designBackBottomText');
 var designFrontTopTextBtn = document.getElementById("designFrontTopTextBtn");
 
 var frontTopTextScale = document.getElementById("frontTopTextScale");
-var frontTopTextRotation = document.getElementById("frontTopTextRotation");
+var frontTopTextHorizontal = document.getElementById("frontTopTextHorizontal");
+var frontTopTextVertical = document.getElementById("frontTopTextVertical");
 
 var ctx = canvas.getContext('2d');
 var imgObj = new Image();
@@ -18,7 +19,7 @@ imgObj.onload = function(){
 	reloadProduct(600, 600);
 };
 
-imgObj.src = "https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/C7E62221168643D59F245C2D51C5C560/10532564_r.jpg?fit=inside|1024:1024";
+imgObj.src = "/images/products/tshirts/blanks/white.png";
 
 
 shirtColor.addEventListener('change', (e) => {
@@ -26,7 +27,7 @@ shirtColor.addEventListener('change', (e) => {
 	//ctx.fillText(localStorage.getItem("frontTopText"), 270, 160);
 	imgObj.src = getSelectedImage(shirtColor.value);
 	localStorage.setItem("shirtColor", shirtColor.value);
-	//console.log(`Local Storage Shirt Color: ${localStorage.getItem("shirtColor")}`);
+	ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextVertical"));
 });
 
 designFrontTopTextBtn.addEventListener('click', (e) => {
@@ -35,7 +36,7 @@ designFrontTopTextBtn.addEventListener('click', (e) => {
 		removeStorageItem("frontTopText");
 		localStorage.setItem("frontTopText", frontText1.value);
 		reloadProduct(600, 600);
-		ctx.fillText(localStorage.getItem("frontTopText"), 270, 160);
+		ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextVertical"));
 		//console.log(localStorage.getItem("frontTopText"));
 		document.getElementById('frontTextStyleOptions').style.display = "block";
 		document.getElementById('frontTopTextStyle').style.display = "block";
@@ -52,8 +53,30 @@ frontTopTextScale.oninput = function() {
 	localStorage.setItem("frontTopTextSize", this.value);
 	reloadProduct(600, 600);
 	ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
+	//console.log(this.value);
+	ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextVertical"));
+}
+
+frontTopTextHorizontal.oninput = function() {
+	removeStorageItem("frontTopText");
+	removeStorageItem("frontTopTextHorizontal");
+	localStorage.setItem("frontTopText", frontText1.value);
+	localStorage.setItem("frontTopTextHorizontal", this.value);
+	reloadProduct(600, 600);
+	//ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
+	//console.log(this.value);
+	ctx.fillText(localStorage.getItem("frontTopText"), this.value, localStorage.getItem("frontTopTextVertical"));
+}
+
+frontTopTextVertical.oninput = function() {
+	removeStorageItem("frontTopText");
+	removeStorageItem("frontTopTextVertical");
+	localStorage.setItem("frontTopText", frontText1.value);
+	localStorage.setItem("frontTopTextVertical", this.value);
+	reloadProduct(600, 600);
+	//ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
 	console.log(this.value);
-	ctx.fillText(localStorage.getItem("frontTopText"), 270, 160);
+	ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextHorizontal"));
 }
 
 // frontTopTextRotation.oninput = function() {
@@ -80,73 +103,73 @@ function removeStorageItem(input){
 function getSelectedImage(input) {
 	var output = '';
 	if (input == "White") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/C7E62221168643D59F245C2D51C5C560/10532564_r.jpg?fit=inside|1024:1024';
+		output = "/images/products/tshirts/blanks/white.png";
 	}
 	if (input == "Black") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/E6F09D1C8ACB448C8AC3C230D95F63C5/10532473_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/black.png';
 	}
 	if (input == "Royal Blue") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/795AF79ED6584F9B9526EFBB6CE0D971/10532887_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/royalblue.png';
 	}
 	if (input == "Light Pink") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/33A9384E8C7C414F8FA1FC88DAC35E6A/10508513.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/lightpink.png';
 	}
 	if (input == "Heliconia Pink") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/6FEAE9A28B8F4EDB9F462EE7B974451D/10093625_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/heliconiapink.png';
 	}
 	if (input == "Safety Pink") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/B8F43962C9AD4F2AB3D206DF564A6BD6/10267604_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/safetypink.png';
 	}
 	if (input == "Daisy Yellow") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/D9F203C109D24C049A1BD790854364D8/10239895_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/daisyyellow.png';
 	}
 	if (input == "Irish Green") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/89929EBC63DE42EA9701E67C8B731990/10460172.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/irishgreen.png';
 	}
 	if (input == "Lime Green") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/EC97C2451ABD4066B995424749BB93EF/10388593_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/limegreen.png';
 	}
 	if (input == "Safety Green") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/C07882E2FC784B3EA4A03F25D7A8F5CB/10186041_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/safetygreen.png';
 	}
 	if (input == "Purple") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/95734D6FBF574903863FDCED83A5689C/10147206_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/purple.png';
 	}
 	if (input == "Safety Orange") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/A7932F2D453C45DF979058DB0DB332C1/10236501_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/safetyorange.png';
 	}
 	if (input == "Sapphire") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/53FB11247AD448EE80E1A1FBC4A4EC53/10093633_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/sapphire.png';
 	}
 	if (input == "Sport Grey") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/61F41171B1724D94BC647336B3BB03A3/10236559_R.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/sportgrey.png';
 	}
 	if (input == "Sunset") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/20662A5914AA4510B8707D72F10DA291/10460164_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/sunset.png';
 	}
 	if (input == "Berry") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/CF4226B6C50E4C3E8EC611122881926B/10275948_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/berry.png';
 	}
 	if (input == "Cherry Red") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/DFBE2689DAF0451D90987E6413D6DB85/10508502.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/cherryred.png';
 	}
 	if (input == "Heather Military Green") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/A57305A142C54EF6BA60DF69062B8C3B/10460157_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/heathermilitarygreen.png';
 	}
 	if (input == "Heather Purple") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/E8E9AEFC3F144020AF2832AB72936DF3/10508498.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/heatherpurple.png';
 	}
 	if (input == "Heather Red") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/192DEC54FA2B4AE19247FABD6978C13C/10277943_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/heatherred.png';
 	}
 	if (input == "Heather Sapphire") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/EB90A09F14974397979B79BDEE33EEEA/10277947_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/heathersapphire.png';
 	}
 	if (input == "Navy Blue") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/97FB4212A7814312B1A13D68B4BF99B2/10149290_r.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/navyblue.png';
 	}
 	if (input == "Navy Heather") {
-		output = 'https://imgs.michaels.com/MAM/assets/1/726D45CA1C364650A39CD1B336F03305/img/33565E2D49E043E1A62FE408CA4B460E/10398649_u.jpg?fit=inside|1024:1024';
+		output = '/images/products/tshirts/blanks/navyheather.png';
 	}
 	return output;
 }

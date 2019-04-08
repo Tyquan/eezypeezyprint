@@ -92,11 +92,11 @@
 }
 
 #frontShirtOptions {
-  background-color: #2e86de;
+  background-color: #d63031;
   padding-top: 2%;
   padding-bottom: 2%;
   color: white;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   width: 90%;
   margin: 0 auto;
 }
@@ -112,11 +112,11 @@
 }
 
 #backShirtOptions {
-  background-color: #2e86de;
+  background-color: #d63031;
   padding-top: 2%;
   padding-bottom: 2%;
   color: white;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   width: 90%;
   margin: 0 auto;
 }
@@ -132,13 +132,14 @@
 }
 
 #frontTextStyleOptions {
-  background-color: #2e86de;
-  padding-top: 2%;
+  background-color: #00b894;
+  /* padding-top: 2%; */
   padding-bottom: 2%;
   color: white;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   width: 90%;
   margin: 0 auto;
+  display: none;
   display: none;
 }
 
@@ -155,3 +156,6 @@
   display: none;
 }
 
+#designFrontTopTextBtn {
+  margin-bottom: 2%;
+}
