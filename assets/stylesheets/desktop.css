@@ -21,3 +21,11 @@
 	height: 600px;
 	z-index: -1;
 }
+
+#page-title {
+	margin-top: 5%;
+}
+
+#contactForm {
+	margin-top: 10%;
+}

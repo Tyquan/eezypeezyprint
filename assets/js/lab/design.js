@@ -12,6 +12,8 @@ var frontTopTextScale = document.getElementById("frontTopTextScale");
 var frontTopTextHorizontal = document.getElementById("frontTopTextHorizontal");
 var frontTopTextVertical = document.getElementById("frontTopTextVertical");
 
+var frontTopTextBold = document.getElementById('frontTopTextBold');
+
 var ctx = canvas.getContext('2d');
 var imgObj = new Image();
 
@@ -23,11 +25,13 @@ imgObj.src = "/images/products/tshirts/blanks/white.png";
 
 
 shirtColor.addEventListener('change', (e) => {
+	/* 
+		change the shirt color and save it to the local storage
+	*/
 	e.preventDefault();
-	//ctx.fillText(localStorage.getItem("frontTopText"), 270, 160);
 	imgObj.src = getSelectedImage(shirtColor.value);
 	localStorage.setItem("shirtColor", shirtColor.value);
-	ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextVertical"));
+	reloadText();
 });
 
 designFrontTopTextBtn.addEventListener('click', (e) => {
@@ -36,7 +40,7 @@ designFrontTopTextBtn.addEventListener('click', (e) => {
 		removeStorageItem("frontTopText");
 		localStorage.setItem("frontTopText", frontText1.value);
 		reloadProduct(600, 600);
-		ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextVertical"));
+		reloadText();
 		//console.log(localStorage.getItem("frontTopText"));
 		document.getElementById('frontTextStyleOptions').style.display = "block";
 		document.getElementById('frontTopTextStyle').style.display = "block";
@@ -52,9 +56,9 @@ frontTopTextScale.oninput = function() {
 	localStorage.setItem("frontTopText", frontText1.value);
 	localStorage.setItem("frontTopTextSize", this.value);
 	reloadProduct(600, 600);
-	ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
+	ctx.font = `${localStorage.getItem("frontTopTextBold")} ${localStorage.getItem("frontTopTextSize")}px Arial`;
 	//console.log(this.value);
-	ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextVertical"));
+	reloadText();
 }
 
 frontTopTextHorizontal.oninput = function() {
@@ -65,7 +69,7 @@ frontTopTextHorizontal.oninput = function() {
 	reloadProduct(600, 600);
 	//ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
 	//console.log(this.value);
-	ctx.fillText(localStorage.getItem("frontTopText"), this.value, localStorage.getItem("frontTopTextVertical"));
+	reloadText();
 }
 
 frontTopTextVertical.oninput = function() {
@@ -76,7 +80,7 @@ frontTopTextVertical.oninput = function() {
 	reloadProduct(600, 600);
 	//ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
 	console.log(this.value);
-	ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextHorizontal"));
+	reloadText();
 }
 
 // frontTopTextRotation.oninput = function() {
@@ -89,15 +93,21 @@ frontTopTextVertical.oninput = function() {
 // 	ctx.fillText(localStorage.getItem("frontTopText"), 270, 160);
 // }
 
+
+
 function reloadProduct (width, height) {
 	ctx.drawImage(imgObj, 0, 0, width, height);
+}
+
+function reloadText(){
+	ctx.fillText(localStorage.getItem("frontTopText"), localStorage.getItem("frontTopTextHorizontal"), localStorage.getItem("frontTopTextVertical"));
 }
 
 function removeStorageItem(input){
 	localStorage.removeItem(input);
 	ctx.clearRect(0, 0, canvas.width, canvas.height); 
-	console.log(`Storage ${input} removed!`);
-	console.log(localStorage.getItem(input));
+	//console.log(`Storage ${input} removed!`);
+	//console.log(localStorage.getItem(input));
 }
 
 function getSelectedImage(input) {

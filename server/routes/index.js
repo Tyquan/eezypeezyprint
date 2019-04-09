@@ -16,4 +16,22 @@ router.get('/studio', function(req, res, next) {
 	});
 });
 
+// Design Lab
+router.get('/about', function(req, res, next) {
+	res.render('static/about', { 
+	    title: 'Eezy Peezy Print'
+	});
+});
+
+// Design Lab
+router.get('/contact', function(req, res, next) {
+	res.render('static/contact', { 
+	    title: 'Eezy Peezy Print'
+	});
+});
+
+router.post('/contact', (req, res, next) => {
+	console.log(req.body);
+});
+
 module.exports = router;

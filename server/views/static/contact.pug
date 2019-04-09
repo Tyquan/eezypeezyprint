@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  div(id="contact")
+    div(class="container")
+      div(class="row")
+        div(class="col-md-6")
+          form(id="contactForm" method="post" action="/contact")
+            div(class="row")
+              div(class="col-sm-6")
+                label(for="name") Name
+                input(type="text" name="name" class="form-control" required)
+                br
+              div(class="col-sm-6")
+                label(for="email") Email
+                input(type="email" name="email" class="form-control" required)
+                br
+            div(class="row")
+              div(class="col-sm-12")
+                label(for="phone") Phone Number
+                input(type="text" name="phone" class="form-control")
+                br
+                label(for="contactReason") Reason for contact
+                input(id="contactReason" name="contactReason" class="form-control")
+                br
+                label(for="message") Message
+                textarea(name="message" class="form-control" required)
+                br
+                input(type="submit" value="Submit" class="btn btn-primary")
+        div(class="col-md-6")
+          div(id="contactTshirt")
+            img(class="img-fluid" src="https://www.rushordertees.com/design/ZoomImage.php?src=3082864_f&style=g200&colorCode=00&x=240&y=300&width=880&height=880&scale=1.7&watermark=false")
