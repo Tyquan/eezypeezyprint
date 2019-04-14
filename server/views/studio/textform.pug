@@ -1,0 +1,72 @@
+div(id="orderForm")
+  form(id="designForm")
+    div(class="row")
+      div(class="col-md-12")
+        div(id="customerTextOptions")
+          h6
+            i(id="textArrow" class="fa fa-arrow-right" aria-hidden="true")
+            span  Add Some Text
+        br
+        div(id="textOptions")
+          div(class="row")
+            div(class="col-sm-12")
+              div(id="frontShirtOptions")
+                h6
+                  i(id="frontShirtArrow" class="fa fa-arrow-right" aria-hidden="true")
+                  span  Front Side Of Shirt
+              div(id="textContainer")
+                div(id="frontText")
+                  label(id="myFrontTopText") Top Text
+                  input(id="designFrontTopText" type="text" name="designFrontTopText" class="form-control")
+                  br
+                  button(class="btn btn-primary" id="designFrontTopTextBtn") Add top text
+                  br
+                  div(id="frontTextStyleOptions")
+                    br
+                    h6
+                      i(id="frontTopArrow" class="fa fa-arrow-right" aria-hidden="true") 
+                      span Top Text Style
+                  div(id="textContainer")  
+                    div(id="frontTopTextStyle")
+                      label(id="myTopTextColor") Text Color
+                      input(type="color" id="frontTopTextColor" name="frontTopTextColor")
+                      label(id="myTopTextScale") Resize Text
+                      input(type="range" id="frontTopTextScale" min="10" max="150" value="10" name="frontTopTextScale" class="form-control")
+                      label(id="myTopTextHorizontal") Horizontal
+                      input(type="range" id="frontTopTextHorizontal" min="150" max="450" value="10" name="frontTopTextHorizontal" class="form-control")
+                      label(id="myTopTextVertical") Vertical
+                      input(type="range" id="frontTopTextVertical" min="150" max="380" value="150" name="frontTopTextVertical" class="form-control")
+                  hr
+                  label(id="myMidText") Mid Text
+                  input(id="designFrontMidText" type="text" name="designFrontMidText" class="form-control")
+          br
+          div(class="row")
+            div(class="col-sm-12")
+              div(id="backShirtOptions")
+                h6 
+                  i(id="frontShirtArrow" class="fa fa-arrow-right" aria-hidden="true")
+                  span Back Side Of Shirt
+              div(class="textContainer")
+                div(id="backText")
+                  label(id="myBackTopText") Top Text
+                  input(id="designBackTopText" type="text" name="designBackTopText" class="form-control")
+                  label(id="myBackBottomText") Bottom Text
+                  input(id="designBackBottomText" type="text" name="designBackBottomText" class="form-control")
+          br
+    div(class="row")
+      div(class="col-md-12")
+        div(id="customerFileOptions")
+          h6
+            i(id="uploadArrow" class="fa fa-arrow-right" aria-hidden="true")
+            span  Upload An image
+        br
+        div(id="fileOptions")
+          div(class="row")
+            div(class="col-sm-12")
+              label(id="myFrontUpload") Front File Upload
+              input(id="designFrontUpload" type="file" name="designFrontUpload" class="form-control")
+          div(class="row")
+            div(class="col-sm-12")
+              label(id="myBackUpload") Back File Upload
+              input(id="designBackUpload" type="file" name="designBackUpload" class="form-control")
+          br

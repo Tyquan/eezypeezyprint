@@ -43,17 +43,16 @@ function getShirtPrice(){
 	
 	var shirtCount = getShirtCount();
 
+	// change the price of the shirt depending on the quantity of shirts ordered
 	if (shirtCount >= 12) {
 		pricePerShirt = 6.00;
 	}
 	if (shirtCount >= 48) {
-		pricePerShirt = 4.00;
+		pricePerShirt = 5.00;
 	}
 	if (shirtCount >= 100) {
-		pricePerShirt = 3.00;
+		pricePerShirt = 4.00;
 	}
-
-	console.log(pricePerShirt);
 
 	// get the price of the texts
 	var textTotal = getTextPrice(shirtCount);
@@ -81,17 +80,26 @@ function getTextPrice(shirtCount){
 	if (frontText1.value != "") {
 		textCount += 1;
 	}
+	else {
+		textCount += 0;
+	}
 	if (frontText2.value != "") {
 		textCount += 1;
-	} 
-	if (frontText3.value != "") {
-		textCount += 1;
+	}
+	else {
+		textCount += 0;
 	}
 	if (backText1.value != "") {
 		textCount += 1;
 	} 
+	else {
+		textCount += 0;
+	}
 	if (backText2.value != "") {
 		textCount += 1;
+	}
+	else {
+		textCount += 0;
 	}
 
 	if (shirtCount >= 12) {

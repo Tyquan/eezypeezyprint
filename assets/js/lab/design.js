@@ -8,6 +8,7 @@ var backText2 = document.getElementById('designBackBottomText');
 
 var designFrontTopTextBtn = document.getElementById("designFrontTopTextBtn");
 
+var frontTopTextColor = document.getElementById("frontTopTextColor");
 var frontTopTextScale = document.getElementById("frontTopTextScale");
 var frontTopTextHorizontal = document.getElementById("frontTopTextHorizontal");
 var frontTopTextVertical = document.getElementById("frontTopTextVertical");
@@ -17,12 +18,18 @@ var frontTopTextBold = document.getElementById('frontTopTextBold');
 var ctx = canvas.getContext('2d');
 var imgObj = new Image();
 
-imgObj.onload = function(){
-	reloadProduct(600, 600);
-};
+var centerX = canvas.width / 2;
+var centerY = canvas.height - 30;
+var angle = Math.PI * 0.8;
+var radius = 150;
 
 imgObj.src = "/images/products/tshirts/blanks/white.png";
 
+
+// Load A Shirt when the page is loaded
+imgObj.onload = function(){
+	reloadProduct(600, 600);
+};
 
 shirtColor.addEventListener('change', (e) => {
 	/* 
@@ -34,6 +41,8 @@ shirtColor.addEventListener('change', (e) => {
 	reloadText();
 });
 
+
+// Add Text To The Product When a user writes something and clicks the button
 designFrontTopTextBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	if (frontText1.value.length != 0) {
@@ -41,7 +50,6 @@ designFrontTopTextBtn.addEventListener('click', (e) => {
 		localStorage.setItem("frontTopText", frontText1.value);
 		reloadProduct(600, 600);
 		reloadText();
-		//console.log(localStorage.getItem("frontTopText"));
 		document.getElementById('frontTextStyleOptions').style.display = "block";
 		document.getElementById('frontTopTextStyle').style.display = "block";
 	} else {
@@ -49,36 +57,44 @@ designFrontTopTextBtn.addEventListener('click', (e) => {
 	}
 });
 
-// Update the current slider value (each time you drag the slider handle)
+frontTopTextColor.addEventListener('change', (e) => {
+	e.preventDefault();
+	var textColor = frontTopTextColor.value;
+	console.log(`The color is: ${textColor}`);
+	ctx.fillStyle = textColor;
+	localStorage.setItem("frontTextColor", textColor);
+	reloadProduct();
+	reloadText();
+});
+
+// Update the current slider value (each time you drag the slider handle) SCALE
 frontTopTextScale.oninput = function() {
 	removeStorageItem("frontTopText");
 	removeStorageItem("frontTopTextSize");
 	localStorage.setItem("frontTopText", frontText1.value);
 	localStorage.setItem("frontTopTextSize", this.value);
 	reloadProduct(600, 600);
-	ctx.font = `${localStorage.getItem("frontTopTextBold")} ${localStorage.getItem("frontTopTextSize")}px Arial`;
-	//console.log(this.value);
+	ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
 	reloadText();
 }
 
+// Update the current slider value (each time you drag the slider handle) HORIZONTAL ALIGNMENT
 frontTopTextHorizontal.oninput = function() {
 	removeStorageItem("frontTopText");
 	removeStorageItem("frontTopTextHorizontal");
 	localStorage.setItem("frontTopText", frontText1.value);
 	localStorage.setItem("frontTopTextHorizontal", this.value);
 	reloadProduct(600, 600);
-	//ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
-	//console.log(this.value);
 	reloadText();
 }
 
+// Update the current slider value (each time you drag the slider handle) VERICAL ALIGNMENT
 frontTopTextVertical.oninput = function() {
 	removeStorageItem("frontTopText");
 	removeStorageItem("frontTopTextVertical");
 	localStorage.setItem("frontTopText", frontText1.value);
 	localStorage.setItem("frontTopTextVertical", this.value);
 	reloadProduct(600, 600);
-	//ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
 	console.log(this.value);
 	reloadText();
 }
@@ -95,6 +111,11 @@ frontTopTextVertical.oninput = function() {
 
 
 
+
+
+
+
+/* HELPER FUNCTIONS */
 function reloadProduct (width, height) {
 	ctx.drawImage(imgObj, 0, 0, width, height);
 }
@@ -105,9 +126,25 @@ function reloadText(){
 
 function removeStorageItem(input){
 	localStorage.removeItem(input);
-	ctx.clearRect(0, 0, canvas.width, canvas.height); 
-	//console.log(`Storage ${input} removed!`);
-	//console.log(localStorage.getItem(input));
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// ARC TEXT
+function drawTextAlongArc(context, str, centerX, centerY, radius, angle) {
+  var len = str.length, s;
+  ctx.save();
+  ctx.translate(centerX, centerY);
+  ctx.rotate(-1 * angle / 2);
+  ctx.rotate(-1 * (angle / len) / 2);
+  for(var n = 0; n < len; n++) {
+    ctx.rotate(angle / len);
+    ctx.save();
+    ctx.translate(0, -1 * radius);
+    s = str[n];
+    ctx.fillText(s, 0, 0);
+    ctx.restore();
+  }
+  ctx.restore();
 }
 
 function getSelectedImage(input) {

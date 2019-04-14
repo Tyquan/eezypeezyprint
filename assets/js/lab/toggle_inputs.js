@@ -6,6 +6,7 @@ var customerSizeOptions = document.getElementById("customerSizeOptions");
 var customerNoteOptions = document.getElementById("customerNoteOptions");
 var frontShirtOptions = document.getElementById("frontShirtOptions");
 var backShirtOptions = document.getElementById("backShirtOptions");
+var frontTextStyleOptions = document.getElementById('frontTextStyleOptions');
 
 // arrows
 var infoArrow = document.getElementById("infoArrow");
@@ -15,6 +16,7 @@ var uploadArrow = document.getElementById("uploadArrow");
 var sizeArrow = document.getElementById("sizeArrow");
 var noteArrow = document.getElementById("noteArrow");
 var frontShirtArrow = document.getElementById("frontShirtArrow");
+var frontTopArrow = document.getElementById('frontTopArrow');
 
 customerInfoTitle.addEventListener('click', (e) => {
 	chooseDisplayOption(e, document.getElementById("customerInfo"), infoArrow);
@@ -46,6 +48,10 @@ frontShirtOptions.addEventListener('click', (e) => {
 
 backShirtOptions.addEventListener('click', (e) => {
 	chooseDisplayOption(e, document.getElementById("backText"), frontShirtArrow);
+});
+
+frontTextStyleOptions.addEventListener('click', (e) => {
+	chooseDisplayOption(e, document.getElementById("frontTopTextStyle"), frontTopArrow);
 });
 
 

@@ -4,12 +4,23 @@ block content
   div(id="designLab")
     div(class="container-fluid")
       div(class="row")
-        div(class="col-md-6")
-          include ../partials/orderform.pug
+        div(class="col-md-3")
+          include ../studio/orderform.pug
         div(class="col-md-6")
           div(id="designContent")
-            h6 Estimated Price: 
-              span(id="estimate")
-            canvas(id="myShirt" width="644px" height="600px")
+            canvas(id="myShirt" width="644px" height="550px")
+        div(class="col-md-3")
+          include ../studio/textform.pug
+      div(id="bottom")
+        div(class="container")
+          div(class="row")
+            div(class="col-sm-3")
+              button( id="getEstimate" class="btn btn-primary") Get Estimated Price
+            div(class="col-sm-3")
+              input(id="designSubmit" type="submit" value="Submit Order" name="designUpload" class="btn btn-primary")
+            div(class="col-sm-6")
+              h6 Estimated Price: 
+                span(id="estimate")
+  script(src="/js/lab/toggle_inputs.js")
   script(src="/js/lab/design.js")
   script(src="/js/lab/priceCalculator.js")

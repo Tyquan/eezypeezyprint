@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const Contact = require('../models/contact');
 const router = express.Router();
 
 /* GET home page. */
