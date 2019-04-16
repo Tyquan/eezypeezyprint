@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "removeComments": true,
+      "allowJs": true,
+      "sourceMap": true,
+      "target": "es5",
+      "outDir": "assets/js/studio/"
+    },
+    "include": [
+      "assets/ts/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "**/*.spec.ts"
+    ]
+  }

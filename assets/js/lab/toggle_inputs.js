@@ -57,7 +57,7 @@ frontTextStyleOptions.addEventListener('click', (e) => {
 
 // Helper function
 function chooseDisplayOption(e, input, arrow){
-	e.preventDefault();
+	//e.preventDefault();
 	if (input.style.display == "none") {
 		input.style.display = 'block';
 		arrow.className = "fa fa-arrow-down";

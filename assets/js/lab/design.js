@@ -9,9 +9,11 @@ var backText2 = document.getElementById('designBackBottomText');
 var designFrontTopTextBtn = document.getElementById("designFrontTopTextBtn");
 
 var frontTopTextColor = document.getElementById("frontTopTextColor");
+var frontTopTextFont = document.getElementById("frontTopTextFont");
 var frontTopTextScale = document.getElementById("frontTopTextScale");
 var frontTopTextHorizontal = document.getElementById("frontTopTextHorizontal");
 var frontTopTextVertical = document.getElementById("frontTopTextVertical");
+var frontTopTextRotation = document.getElementById("frontTopTextRotation");
 
 var frontTopTextBold = document.getElementById('frontTopTextBold');
 
@@ -36,8 +38,10 @@ shirtColor.addEventListener('change', (e) => {
 		change the shirt color and save it to the local storage
 	*/
 	e.preventDefault();
-	imgObj.src = getSelectedImage(shirtColor.value);
 	localStorage.setItem("shirtColor", shirtColor.value);
+	imgObj.src = getSelectedImage(shirtColor.value);
+	reloadProduct(600, 600);
+	setFont();
 	reloadText();
 });
 
@@ -49,6 +53,7 @@ designFrontTopTextBtn.addEventListener('click', (e) => {
 		removeStorageItem("frontTopText");
 		localStorage.setItem("frontTopText", frontText1.value);
 		reloadProduct(600, 600);
+		setFont();
 		reloadText();
 		document.getElementById('frontTextStyleOptions').style.display = "block";
 		document.getElementById('frontTopTextStyle').style.display = "block";
@@ -64,6 +69,15 @@ frontTopTextColor.addEventListener('change', (e) => {
 	ctx.fillStyle = textColor;
 	localStorage.setItem("frontTextColor", textColor);
 	reloadProduct();
+	setFont();
+	reloadText();
+});
+
+frontTopTextFont.addEventListener('change', (e) => {
+	e.preventDefault();
+	localStorage.setItem('frontTopTextFont', frontTopTextFont.value);
+	reloadProduct(600, 600);
+	setFont();
 	reloadText();
 });
 
@@ -74,7 +88,7 @@ frontTopTextScale.oninput = function() {
 	localStorage.setItem("frontTopText", frontText1.value);
 	localStorage.setItem("frontTopTextSize", this.value);
 	reloadProduct(600, 600);
-	ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
+	setFont();
 	reloadText();
 }
 
@@ -85,6 +99,7 @@ frontTopTextHorizontal.oninput = function() {
 	localStorage.setItem("frontTopText", frontText1.value);
 	localStorage.setItem("frontTopTextHorizontal", this.value);
 	reloadProduct(600, 600);
+	setFont();
 	reloadText();
 }
 
@@ -95,18 +110,21 @@ frontTopTextVertical.oninput = function() {
 	localStorage.setItem("frontTopText", frontText1.value);
 	localStorage.setItem("frontTopTextVertical", this.value);
 	reloadProduct(600, 600);
+	setFont();
 	console.log(this.value);
 	reloadText();
 }
 
 // frontTopTextRotation.oninput = function() {
-// 	removeStorageItem("frontTopTextRotation");
 // 	localStorage.setItem("frontTopTextRotation", this.value);
-// 	reloadProduct(600, 600);
-// 	ctx.font = `${localStorage.getItem("frontTopTextSize")}px Arial`;
 	
-// 	console.log(this.value);
-// 	ctx.fillText(localStorage.getItem("frontTopText"), 270, 160);
+// 	// setFont();
+// 	// //console.log(this.value);
+// 	reloadText();
+// 	ctx.rotate(localStorage.getItem("frontTopTextRotation"));
+// 	// reloadProduct(600, 600);
+// 	// console.log(this);
+// 	//this.rotate(localStorage.getItem("frontTopTextRotation"));
 // }
 
 
@@ -116,6 +134,14 @@ frontTopTextVertical.oninput = function() {
 
 
 /* HELPER FUNCTIONS */
+function setFont(){
+	if (!localStorage.getItem("frontTopTextFont")) {
+		localStorage.setItem("frontTopTextFont", "Arial");
+	} else {
+		ctx.font = `${localStorage.getItem("frontTopTextSize")}px ${localStorage.getItem("frontTopTextFont")}`;
+	}
+}
+
 function reloadProduct (width, height) {
 	ctx.drawImage(imgObj, 0, 0, width, height);
 }
