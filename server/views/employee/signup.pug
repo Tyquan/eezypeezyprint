@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  div(id="auth")
+    div(class="row")
+        div(class="col-sm-12")
+            h2(class="text-center") Employee Signup
+    div(class="row")
+        div(class="col-sm-12")
+            form(action="/auth/signup" method="post")
+                label(for="email") Username
+                input(name="email" type="email" id="authEmail" class="form-control")
+                label(for="password") Password
+                input(name="password" type="text" id="authPassword" class="form-control")
+                br
+                input(type="submit" class="btn btn-primary" value="Submit")

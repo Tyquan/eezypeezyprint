@@ -32,6 +32,12 @@
 		margin-top: 5%;
 	}
 
+	#auth {
+		width: 75%;
+		margin: 0 auto;
+		margin-top: 30%;
+	}
+
 	#footerContent {
 		margin-top: 3%;
 	}
