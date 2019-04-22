@@ -1,3 +1,30 @@
 script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous")
 script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous")
 script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js")
+footer
+    div(class="container")
+        div(class="row")
+            div(class="col")
+                div(id="footerContent")
+                h5(class="text-center") EezyPeezyPrint.com
+        div(class="row")
+            div(class="col")
+                div(id="footerContent")
+                h5 Navigation
+                hr
+                ul.navbar-nav.mr-auto
+                    li.nav-item.active
+                    a.nav-link(href='/')
+                        | Home 
+                        span.sr-only (current)
+                    li.nav-item
+                    a.nav-link(href='/about') About Us
+                    li.nav-item
+                    a.nav-link(href="/contact") Contact Us
+            div(class="col")
+                div(id="footerContent")
+                h5 Location
+                hr
+                p Newark, NJ 07112
+                p Available 24/7
+                p Phone: 1-570-709-1916

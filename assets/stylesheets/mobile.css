@@ -1,10 +1,43 @@
-#content-marg {
-	margin-top: 2.5%;
-}
-#frontImage {
-	width: 100%;
-	height: 200px;
-}
-#inner-marg {
-	margin-top: 1%;
+@media only screen and (min-width: 320px) {
+	#content-marg {
+		margin-top: 2.5%;
+	}
+
+	#frontOptions {
+		background-color: blueviolet;
+		border-radius: 5px;
+		color: white;
+	}
+
+	#inner-marg {
+		margin-top: 1%;
+	}
+
+	#frontImage {
+		height: 200px;
+		width: 90%;
+		margin-top: 5%;
+	}
+
+	#mercenary {
+		margin: 5%;
+		color: white;
+	}
+
+	#sliderImage {
+		height: 300px;
+	}
+
+	#content-marg {
+		margin-top: 5%;
+	}
+
+	#footerContent {
+		margin-top: 3%;
+	}
+
+	footer {
+		margin-top: 5%;
+		background-color: #ecf0f1;
+	}
 }

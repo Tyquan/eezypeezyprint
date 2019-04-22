@@ -9,11 +9,11 @@ block content
         li(data-target='#carouselExampleIndicators' data-slide-to='2')
       .carousel-inner
         .carousel-item.active
-          img.d-block.w-100(src='/images/ads/team.png' alt='First slide')
+          img.d-block.w-100(id="sliderImage" src='/images/ads/team.png' alt='First slide')
         .carousel-item
-          img.d-block.w-100(src='/images/ads/organization.png' alt='Second slide')
+          img.d-block.w-100(id="sliderImage" src='/images/ads/organization.png' alt='Second slide')
         .carousel-item
-          img.d-block.w-100(src='/images/ads/brand.png' alt='Third slide')
+          img.d-block.w-100(id="sliderImage" src='/images/ads/brand.png' alt='Third slide')
       a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
         span.carousel-control-prev-icon(aria-hidden='true')
         span.sr-only Previous
@@ -24,27 +24,36 @@ block content
     div(class="container")
       div(class="row")
         div(class="col-sm-12")
-          h2(class="text-center" style="font-style:bold") Custom T-Shirts and Group Apparel
+          h2(class="text-center" style="font-style:bold") Custom Shirts and Group Apparel
       div(id="inner-marg")
       div(class="row")
-        div(class="col-md-4")
-          img(id="frontImage" src="https://www.rushordertees.com/design/ZoomImage.php?src=3082864_f&style=g200&colorCode=00&x=240&y=300&width=880&height=880&scale=1.7&watermark=false")
-          hr
-          h3 T-shirts
-          br
-          p Build a brand with high quality t-shirts
-        div(class="col-md-4")
-          img(id="frontImage" src="http://www.weemaple.com/wp-content/uploads/2019/04/984198F5-7466-411A-9B4B-750790F13637.jpeg")
-          hr
-          h3 Event and Brand Designs
-          br
-          p Customize Kitchen, Glasses, Mugs, Plates and more
-        div(class="col-md-4")
-          img(id="frontImage" src="https://i2.wp.com/www.neuegraphic.com/wp-content/uploads/2014/08/PT0008-Tote-Lemon-3.jpg?resize=540%2C720")
-          hr
-          h3 Bags
-          br
-          p Create cool custom bags for yourself and your organization
+        div(class="col-sm-4")
+          div(id="frontOptions")
+            center
+              img(id="frontImage" src="https://www.rushordertees.com/design/ZoomImage.php?src=3082864_f&style=g200&colorCode=00&x=240&y=300&width=880&height=880&scale=1.7&watermark=false")
+            hr
+            div(id='mercenary')
+              h3 Shirts
+              br
+              p Build a brand with custom Shirts, Sweats and more
+        div(class="col-sm-4")
+          div(id="frontOptions")
+            center
+              img(id="frontImage" src="http://www.weemaple.com/wp-content/uploads/2019/04/984198F5-7466-411A-9B4B-750790F13637.jpeg")
+            hr
+            div(id='mercenary')
+              h3 Cups
+              br
+              p Customize Kitchen, Glasses, Mugs, Plates and more
+        div(class="col-sm-4")
+          div(id="frontOptions")
+            center
+              img(id="frontImage" src="https://i2.wp.com/www.neuegraphic.com/wp-content/uploads/2014/08/PT0008-Tote-Lemon-3.jpg?resize=540%2C720")
+            hr
+            div(id='mercenary')
+              h3 Bags
+              br
+              p Create cool custom bags for yourself and your organization
       div(id="content-marg")
         div(class="row")
           div(class="col")
