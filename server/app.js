@@ -13,6 +13,7 @@ const multer = require('multer');
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const employee = require('./routes/employee');
 
 // mlab connection 
 const mongoUri = 'mongodb://Tyquan:Jamela17!@ds135926.mlab.com:35926/mocky';
@@ -53,6 +54,7 @@ app.use(express.static(path.join(__dirname, '../assets')));
 // Routes
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/employee', employee);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
