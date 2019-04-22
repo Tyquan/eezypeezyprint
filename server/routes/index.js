@@ -31,8 +31,20 @@ router.get('/contact', function(req, res, next) {
 	});
 });
 
+router.get('/contactSubmit', (req, res, next) => {
+	res.render('static/contactSubmit');
+});
+
 router.post('/contact', (req, res, next) => {
-	console.log(req.body);
+	let contact = new Contact(req.body);
+	contact.save().then((info) => {
+		res.render("static/contactSubmit", {
+			title: "Eezy Peezy Print",
+			data: info
+		});
+	}).catch((error) => {
+		next(error);
+	});
 });
 
 module.exports = router;

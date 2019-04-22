@@ -1,0 +1,39 @@
+label(id="myFrontTopText") Top Text
+input(id="designFrontTopText" type="text" name="designFrontTopText" class="form-control")
+br
+button(class="btn btn-primary" id="designFrontTopTextBtn") Add top text
+br
+div(id="frontTextStyleOptions")
+    br
+    h6
+        i(id="frontTopArrow" class="fa fa-arrow-right" aria-hidden="true") 
+        span Top Text Style
+div(id="textContainer")  
+    div(id="frontTopTextStyle")
+        label(id="myTopTextColor") Text Color
+        br
+        input(type="color" id="frontTopTextColor" name="frontTopTextColor")
+        br
+        label(id="myTopTextFont") Font
+        select(id="frontTopTextFont" name="frontTopTextFont" class="form-control")
+            option(value="Arial") Arial
+            option(value="Courier New") Courier New
+            option(value="Cursive") Cursive
+            option(value="fangsong") Fangsong
+            option(value="Georgia") Georgia
+            option(value="Helvetica") Helvetica
+            option(value="Impact") Impact
+            option(value="Lucida Console") Lucida Console
+            option(value="monospace") monospace
+            option(value="Serif") Serif
+            option(value="sans-serif") Sans Serif
+            option(value="system-ui") System UI
+            option(value="Times New Roman") Times New Roman
+            option(value="Verdana") Verdana
+        label(id="myTopTextScale") Resize Text
+        input(type="range" id="frontTopTextScale" min="10" max="150" value="10" name="frontTopTextScale" class="form-control")
+        label(id="myTopTextHorizontal") Horizontal Align
+        input(type="range" id="frontTopTextHorizontal" min="150" max="450" value="10" name="frontTopTextHorizontal" class="form-control")
+        label(id="myTopTextVertical") Vertical Align
+        input(type="range" id="frontTopTextVertical" min="150" max="380" value="150" name="frontTopTextVertical" class="form-control")
+hr

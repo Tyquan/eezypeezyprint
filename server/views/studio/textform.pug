@@ -1,5 +1,5 @@
-div(id="orderForm")
-  form(id="designForm")
+div(id="orderForm" style="max-height:500px;overflow:scroll")
+  form(id="designForm" style="width:90%")
     div(class="row")
       div(class="col-md-12")
         div(id="customerTextOptions")
@@ -16,62 +16,8 @@ div(id="orderForm")
                   span  Front Side Of Shirt
               div(id="textContainer")
                 div(id="frontText")
-                  label(id="myFrontTopText") Top Text
-                  input(id="designFrontTopText" type="text" name="designFrontTopText" class="form-control")
-                  br
-                  button(class="btn btn-primary" id="designFrontTopTextBtn") Add top text
-                  br
-                  div(id="frontTextStyleOptions")
-                    br
-                    h6
-                      i(id="frontTopArrow" class="fa fa-arrow-right" aria-hidden="true") 
-                      span Top Text Style
-                  div(id="textContainer")  
-                    div(id="frontTopTextStyle")
-                      label(id="myTopTextColor") Text Color
-                      br
-                      input(type="color" id="frontTopTextColor" name="frontTopTextColor")
-                      br
-                      label(id="myTopTextFont") Font
-                      select(id="frontTopTextFont" name="frontTopTextFont" class="form-control")
-                        option(value="Arial") Arial
-                        option(value="Courier New") Courier New
-                        option(value="Cursive") Cursive
-                        option(value="fangsong") Fangsong
-                        option(value="Georgia") Georgia
-                        option(value="Helvetica") Helvetica
-                        option(value="Impact") Impact
-                        option(value="Lucida Console") Lucida Console
-                        option(value="monospace") monospace
-                        option(value="Serif") Serif
-                        option(value="sans-serif") Sans Serif
-                        option(value="system-ui") System UI
-                        option(value="Times New Roman") Times New Roman
-                        option(value="Verdana") Verdana
-                      label(id="myTopTextScale") Resize Text
-                      input(type="range" id="frontTopTextScale" min="10" max="150" value="10" name="frontTopTextScale" class="form-control")
-                      label(id="myTopTextHorizontal") Horizontal Align
-                      input(type="range" id="frontTopTextHorizontal" min="150" max="450" value="10" name="frontTopTextHorizontal" class="form-control")
-                      label(id="myTopTextVertical") Vertical Align
-                      input(type="range" id="frontTopTextVertical" min="150" max="380" value="150" name="frontTopTextVertical" class="form-control")
-                      label(id="myTopTextRotation") Rotation
-                      input(type="range" id="frontTopTextRotation" min="-180" max="180" value="0" name="frontTopTextRotation" class="form-control")
-                  hr
-                  label(id="myMidText") Mid Text
-                  input(id="designFrontMidText" type="text" name="designFrontMidText" class="form-control")
-          br
-          div(class="row")
-            div(class="col-sm-12")
-              div(id="backShirtOptions")
-                h6 
-                  i(id="frontShirtArrow" class="fa fa-arrow-right" aria-hidden="true")
-                  span Back Side Of Shirt
-              div(class="textContainer")
-                div(id="backText")
-                  label(id="myBackTopText") Top Text
-                  input(id="designBackTopText" type="text" name="designBackTopText" class="form-control")
-                  label(id="myBackBottomText") Bottom Text
-                  input(id="designBackBottomText" type="text" name="designBackBottomText" class="form-control")
+                  include ./partials/toptext.pug
+                  include ./partials/midtext.pug
           br
     div(class="row")
       div(class="col-md-12")

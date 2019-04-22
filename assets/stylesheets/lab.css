@@ -147,6 +147,22 @@
   display: none;
 }
 
+#frontMidTextStyleOptions {
+  background-color: #00b894;
+  /* padding-top: 0.2%; */
+  padding-bottom: 0.2%;
+  color: white;
+  /* border-radius: 10px; */
+  width: 90%;
+  margin: 0 auto;
+  display: none;
+  display: none;
+}
+
+#frontMidTextStyle {
+  display: none;
+}
+
 #textContainer {
   width: 90%;
   margin: 0 auto;
@@ -157,6 +173,10 @@
 }
 
 #designFrontTopTextBtn {
+  margin-bottom: 2%;
+}
+
+#designFrontMidTextBtn {
   margin-bottom: 2%;
 }
 
