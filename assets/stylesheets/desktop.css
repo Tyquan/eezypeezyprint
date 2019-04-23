@@ -6,4 +6,7 @@
 		width: 50%;
 		margin-top: 5%;
 	}
+	#frontImage {
+		height: 250px;
+	}
 }
