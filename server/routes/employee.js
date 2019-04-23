@@ -26,6 +26,7 @@ router.get('/contacts', (req, res, next) => {
             if (err) {
                 next(err);
             } else {
+                console.log(contacts);
                 res.render('employee/contacts', {
                     title: "Eezy Peezy Print | Contacts",
                     employee: req.session.employee,
